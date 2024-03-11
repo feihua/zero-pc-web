@@ -4,10 +4,10 @@ import * as React from 'react';
 type Props = {
 
 };
-export const FooterPage = (props: Props) => {
+export const UserLayout = (props: Props) => {
     return (
         <div>
-            CartPage
+            Header
         </div>
     );
 };
