@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {Header} from "../../components/header";
 import {Footer} from "../../components/footer";
-import styles from "./index.module.scss"
+import styles from "./index.module.css"
 
 type Props = {
     children: any;
