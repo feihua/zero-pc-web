@@ -4,10 +4,10 @@ import * as React from 'react';
 type Props = {
 
 };
-export const CartPage = (props: Props) => {
+export const CheckOutCard = (props: Props) => {
     return (
         <div>
-            CartPage
+
         </div>
     );
 };

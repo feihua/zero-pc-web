@@ -1,0 +1,24 @@
+.page-content {
+    width: 1230px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 75vh;
+  }
+  
+  .product-intro-container {
+      margin-top: 20px;
+      background-color: white;
+    }
+    
+    .product-detail-anchor {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .product-detail-container {
+      background: white;
+      margin-top: 20px;
+      padding-top: 20px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+    }
