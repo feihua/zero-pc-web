@@ -9,6 +9,7 @@ import {productList1, productList2, productList3} from "../../components/product
 import sideImage from '../../assets/images/sider_2019_12-09.png';
 import sideImage2 from '../../assets/images/sider_2019_02-04.png';
 import sideImage3 from '../../assets/images/sider_2019_02-04-2.png';
+import {BusinessPartners} from "../../components/businessPartners";
 
 type Props = {
 
@@ -51,6 +52,7 @@ export const HomePage = (props: Props) => {
                 sideImage={sideImage3}
                 products={productList3}
             />
+            <BusinessPartners />
         </MainLayout>
     );
 };
