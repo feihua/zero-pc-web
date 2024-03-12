@@ -155,6 +155,9 @@ export const Header = (props: Props) => {
                         <Button onClick={() => navigate('/login')}>
                             登录
                         </Button>
+                        <Button onClick={() => navigate('/cart')}>
+                            购物车
+                        </Button>
                     </Button.Group>
                 </div>
 
