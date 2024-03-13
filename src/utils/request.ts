@@ -1,4 +1,7 @@
-import axios, { AxiosResponse } from "axios";
+import axios, {AxiosResponse} from "axios";
+
+// 方便接口代理(区别不同端的接口)
+const urlPrefix = "app"
 
 // axios实例
 const instance = axios.create({
@@ -12,9 +15,9 @@ const instance = axios.create({
 instance.interceptors.response.use(
     response => response,
     error => {
-        const { response } = error;
+        const {response} = error;
         if (response) {
-            const { status } = response;
+            const {status} = response;
             if (status >= 500) {
                 // 服务端报错
             } else if (status === 400) {
@@ -38,6 +41,7 @@ instance.interceptors.response.use(
  * @param method 请求类型
  */
 export const request = (url: string, params: any, method: string): Promise<AxiosResponse<any, any>> => {
+    url = urlPrefix + url
     if (method === "get") {
         return get(url, params);
     } else {
@@ -51,7 +55,7 @@ export const request = (url: string, params: any, method: string): Promise<Axios
  * @param params 参数
  */
 export const get = (url: string, params: any): Promise<AxiosResponse<any, any>> => {
-    return instance.get(url, {
+    return instance.get(urlPrefix + url, {
         params: params
     });
 };
@@ -62,5 +66,5 @@ export const get = (url: string, params: any): Promise<AxiosResponse<any, any>> 
  * @param params 参数
  */
 export const post = (url: string, params: any): Promise<AxiosResponse<any, any>> => {
-    return instance.post(url, params);
+    return instance.post(urlPrefix + url, params);
 };

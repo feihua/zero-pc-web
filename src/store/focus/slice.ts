@@ -1,22 +1,22 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryCategoryList} from "../../api";
+import {queryAddressList, queryCategoryList, queryFocusList} from "../../api";
 
-interface CategoriesState {
+interface FocusState {
     loading: boolean;
     error: string | null;
     data: any;
 }
 
-const initialState: CategoriesState = {
+const initialState: FocusState = {
     loading: false,
     error: null,
     data: null,
 };
 
-export const queryCategories = createAsyncThunk(
-    "category/queryCategories",
+export const queryFocus = createAsyncThunk(
+    "focus/queryFocus",
     async (thunkAPI) => {
-        const {data}= await queryCategoryList()
+        const {data} = await queryFocusList();
         if (data.code !== 0) {
             throw new Error(data.message)
         }
@@ -24,26 +24,21 @@ export const queryCategories = createAsyncThunk(
     }
 );
 
-export const categoriesSlice = createSlice({
-    name: "category",
+export const focusSlice = createSlice({
+    name: "focus",
     initialState,
     reducers: {
-        logOut: (state) => {
-            state.data = {};
-            state.error = null;
-            state.loading = false;
-        },
     },
     extraReducers: {
-        [queryCategories.pending.type]: (state) => {
+        [queryFocus.pending.type]: (state) => {
             state.loading = true;
         },
-        [queryCategories.fulfilled.type]: (state, action) => {
+        [queryFocus.fulfilled.type]: (state, action) => {
             state.data = action.payload;
             state.loading = false;
             state.error = null;
         },
-        [queryCategories.rejected.type]: (state, action: PayloadAction<string | null>) => {
+        [queryFocus.rejected.type]: (state, action: PayloadAction<string | null>) => {
             state.loading = false;
             state.error = action.payload;
         },

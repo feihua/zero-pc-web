@@ -1,10 +1,15 @@
-import {get} from "../../utils/request";
+import {get, post} from "../../utils/request";
+
+export interface ILogin {
+    mobile: string;
+    password: string;
+}
 
 /**
  * 登录
  */
-export const userLogin = () => {
-    return get('/api/member/login', {});
+export const userLogin = (params: ILogin) => {
+    return post('/api/member/login', params);
 };
 
 /**

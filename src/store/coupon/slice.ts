@@ -1,22 +1,22 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryCategoryList} from "../../api";
+import {queryAddressList, queryCategoryList, queryCouponList} from "../../api";
 
-interface CategoriesState {
+interface CouponState {
     loading: boolean;
     error: string | null;
     data: any;
 }
 
-const initialState: CategoriesState = {
+const initialState: CouponState = {
     loading: false,
     error: null,
     data: null,
 };
 
-export const queryCategories = createAsyncThunk(
-    "category/queryCategories",
+export const queryCoupon = createAsyncThunk(
+    "coupon/queryCoupon",
     async (thunkAPI) => {
-        const {data}= await queryCategoryList()
+        const {data} = await queryCouponList();
         if (data.code !== 0) {
             throw new Error(data.message)
         }
@@ -24,26 +24,21 @@ export const queryCategories = createAsyncThunk(
     }
 );
 
-export const categoriesSlice = createSlice({
-    name: "category",
+export const couponSlice = createSlice({
+    name: "coupon",
     initialState,
     reducers: {
-        logOut: (state) => {
-            state.data = {};
-            state.error = null;
-            state.loading = false;
-        },
     },
     extraReducers: {
-        [queryCategories.pending.type]: (state) => {
+        [queryCoupon.pending.type]: (state) => {
             state.loading = true;
         },
-        [queryCategories.fulfilled.type]: (state, action) => {
+        [queryCoupon.fulfilled.type]: (state, action) => {
             state.data = action.payload;
             state.loading = false;
             state.error = null;
         },
-        [queryCategories.rejected.type]: (state, action: PayloadAction<string | null>) => {
+        [queryCoupon.rejected.type]: (state, action: PayloadAction<string | null>) => {
             state.loading = false;
             state.error = action.payload;
         },

@@ -1,22 +1,22 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryCategoryList} from "../../api";
+import {queryAddressList, queryCategoryList, queryHistoryList} from "../../api";
 
-interface CategoriesState {
+interface HistoryState {
     loading: boolean;
     error: string | null;
     data: any;
 }
 
-const initialState: CategoriesState = {
+const initialState: HistoryState = {
     loading: false,
     error: null,
     data: null,
 };
 
-export const queryCategories = createAsyncThunk(
-    "category/queryCategories",
+export const queryHistory = createAsyncThunk(
+    "history/queryHistory",
     async (thunkAPI) => {
-        const {data}= await queryCategoryList()
+        const {data} = await queryHistoryList();
         if (data.code !== 0) {
             throw new Error(data.message)
         }
@@ -24,26 +24,21 @@ export const queryCategories = createAsyncThunk(
     }
 );
 
-export const categoriesSlice = createSlice({
-    name: "category",
+export const historySlice = createSlice({
+    name: "history",
     initialState,
     reducers: {
-        logOut: (state) => {
-            state.data = {};
-            state.error = null;
-            state.loading = false;
-        },
     },
     extraReducers: {
-        [queryCategories.pending.type]: (state) => {
+        [queryHistory.pending.type]: (state) => {
             state.loading = true;
         },
-        [queryCategories.fulfilled.type]: (state, action) => {
+        [queryHistory.fulfilled.type]: (state, action) => {
             state.data = action.payload;
             state.loading = false;
             state.error = null;
         },
-        [queryCategories.rejected.type]: (state, action: PayloadAction<string | null>) => {
+        [queryHistory.rejected.type]: (state, action: PayloadAction<string | null>) => {
             state.loading = false;
             state.error = action.payload;
         },

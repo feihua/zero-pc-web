@@ -1,5 +1,5 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import axios from "axios";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {userLogin} from "../../api";
 
 interface UserState {
     loading: boolean;
@@ -13,20 +13,17 @@ const initialState: UserState = {
     token: null,
 };
 
-export const signIn = createAsyncThunk(
+export const login = createAsyncThunk(
     "user/signIn",
     async (paramaters: {
-        email: string,
+        mobile: string,
         password: string,
     }, thunkAPI) => {
-        const {data} = await axios.post(
-            `http://82.157.43.234:8080/auth/login`, {
-                email: paramaters.email,
-                password: paramaters.password
-            }
-        );
-        console.log('user_data', data)
-        return data.token;
+        const {data} = await userLogin(paramaters)
+        if (data.code !== 0) {
+            throw new Error(data.message)
+        }
+        return data.data;
     }
 );
 
@@ -41,17 +38,18 @@ export const userSlice = createSlice({
         },
     },
     extraReducers: {
-        [signIn.pending.type]: (state) => {
+        [login.pending.type]: (state) => {
             state.loading = true;
         },
-        [signIn.fulfilled.type]: (state, action) => {
-            state.token = action.payload;
+        [login.fulfilled.type]: (state, action) => {
+            state.token = action.payload.token;
             state.loading = false;
             state.error = null;
         },
-        [signIn.rejected.type]: (state, action: PayloadAction<string | null>) => {
+        [login.rejected.type]: (state, action) => {
             state.loading = false;
-            state.error = action.payload;
+            console.log('action', action)
+            state.error = action.error.message;
         },
     },
 });
