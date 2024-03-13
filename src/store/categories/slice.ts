@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import axios from "axios";
+import {queryCategoryList} from "../../api";
 
 interface CategoriesState {
     loading: boolean;
@@ -14,21 +14,14 @@ const initialState: CategoriesState = {
 };
 
 export const queryCategories = createAsyncThunk(
-    "categories/queryCategories",
-    async (paramaters: {
-
-    }, thunkAPI) => {
-        const {data} = await axios.get(
-            `http://110.41.179.89/app/api/category/queryProductCateList`
-        );
-
-        console.log('categories_data', data)
-        return data;
+    "category/queryCategories",
+    async (thunkAPI) => {
+        return await queryCategoryList();
     }
 );
 
 export const categoriesSlice = createSlice({
-    name: "categories",
+    name: "category",
     initialState,
     reducers: {
         logOut: (state) => {

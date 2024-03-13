@@ -4,19 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
-import rootStore from "./store/store";
+import {store, persistor} from "./store/store";
 import axios from "axios";
 import { PersistGate } from "redux-persist/integration/react";
 
 axios.defaults.headers["x-icode"] = "FB80558A73FA658E";
-
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-      <Provider store={rootStore.store}>
-          <PersistGate persistor={rootStore.persistor}>
+      <Provider store={store}>
+          <PersistGate persistor={persistor}>
               <App />
           </PersistGate>
       </Provider>

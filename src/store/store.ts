@@ -8,25 +8,26 @@ import {categoriesSlice} from "./categories/slice";
 const persistConfig = {
     key: "root",
     storage,
-    whitelist: ["user", "categories"]
+    whitelist: ["user", "category"]
 }
 
 const rootReducer = combineReducers({
     user: userSlice.reducer,
-    categories: categoriesSlice.reducer
+    category: categoriesSlice.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 
-const store = configureStore({
+export const store = configureStore({
     reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), actionLog],
+    middleware: (getDefaultMiddleware) => [...getDefaultMiddleware({
+        serializableCheck: false
+    }), actionLog],
     devTools: true,
 });
 
-const persistor = persistStore(store)
+export const persistor = persistStore(store)
 
 export type RootState = ReturnType<typeof store.getState>
 
-export default {store, persistor};

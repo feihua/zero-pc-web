@@ -9,12 +9,12 @@ export const RegisterPage: React.FC = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // dispatch(signIn({
-        //     email: "alex1234@163.com",
-        //     password: "Fake123$"
-        // }));
+        dispatch(signIn({
+            email: "alex1234@163.com",
+            password: "Fake123$"
+        }));
 
-        dispatch(queryCategories({}))
+        dispatch(queryCategories())
     }, [])
     return (
         <UserLayout>
