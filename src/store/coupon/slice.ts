@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryAddressList, queryCategoryList, queryCouponList} from "../../api";
+import {queryCouponList} from "../../api";
 
 interface CouponState {
     loading: boolean;
@@ -27,8 +27,7 @@ export const queryCoupon = createAsyncThunk(
 export const couponSlice = createSlice({
     name: "coupon",
     initialState,
-    reducers: {
-    },
+    reducers: {},
     extraReducers: {
         [queryCoupon.pending.type]: (state) => {
             state.loading = true;

@@ -15,23 +15,25 @@
 
 }
 
-.loginTopInner{
+.loginTopInner {
     display: flex;
     align-items: center;
 }
 
-.logoImg{
+.logoImg {
     display: inline;
     height: 44px;
 }
-.title{
+
+.title {
     color: #1890ff;
     display: inline;
 }
 
-.desc{
+.desc {
 
 }
+
 .childrenForm {
     margin-top: 50px;
     width: 450px;

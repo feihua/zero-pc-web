@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryAddressList, queryCategoryList, queryProductList} from "../../api";
+import {queryProductList} from "../../api";
 
 interface ProductState {
     loading: boolean;
@@ -27,8 +27,7 @@ export const queryProduct = createAsyncThunk(
 export const productSlice = createSlice({
     name: "product",
     initialState,
-    reducers: {
-    },
+    reducers: {},
     extraReducers: {
         [queryProduct.pending.type]: (state) => {
             state.loading = true;

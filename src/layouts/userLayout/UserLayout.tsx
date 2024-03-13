@@ -1,19 +1,10 @@
 import React from "react";
 import styles from "./UserLayout.module.css";
 import logo from "../../assets/logo.svg";
-import {BrowserRouter, Outlet, Route, Routes} from "react-router-dom";
-import {LoginPage} from "../../pages/login";
-import {RegisterPage} from "../../pages/register";
-import {DetailPage} from "../../pages/detail";
-import {SearchPage} from "../../pages/search";
-import {CartPage} from "../../pages/cart";
-import {HomePage} from "../../pages/home";
+import {Outlet} from "react-router-dom";
 
-interface UserLayoutProps {
-    children?: React.JSX.Element
-}
 
-export const UserLayout: React.FC<UserLayoutProps> = (props) => {
+export const UserLayout: React.FC = () => {
 
     return <>
         <div className={styles.pageContent}>

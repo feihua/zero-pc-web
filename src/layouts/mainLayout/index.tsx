@@ -1,18 +1,17 @@
 // @flow
 import * as React from 'react';
-import {Header} from "../../components/header";
-import {Footer} from "../../components/footer";
+import {Footer, Header} from "../../components";
 import styles from "./index.module.css"
+import {Outlet} from "react-router-dom";
 
-type Props = {
-    children: any;
 
-};
-export const MainLayout = (props: Props) => {
+export const MainLayout = () => {
     return (
         <>
             <Header/>
-            <div className={styles.pageContent}>{props.children}</div>
+            <div className={styles.pageContent}>
+                <Outlet/>
+            </div>
             <Footer/>
         </>
     );

@@ -1,4 +1,4 @@
-export const data=[
+export const data = [
     {
         "id": "042b403e-7ae7-4633-bf6e-2f9666d90029",
         "userId": "e2c1077f-b41f-4023-836a-fd2f00d3b610",
@@ -41,7 +41,7 @@ export const data=[
     }
 ]
 
-export const data1={
+export const data1 = {
     "id": "19f4bff1-b31b-4b46-bd92-3a6521a3f4c9",
     "userId": "e2c1077f-b41f-4023-836a-fd2f00d3b610",
     "orderItems": [

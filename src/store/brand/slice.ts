@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryAddressList, queryBrandList} from "../../api";
+import {queryBrandList} from "../../api";
 
 interface BrandState {
     loading: boolean;

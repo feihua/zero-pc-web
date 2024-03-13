@@ -16,7 +16,7 @@ const initialState: CategoriesState = {
 export const queryCategories = createAsyncThunk(
     "category/queryCategories",
     async (thunkAPI) => {
-        const {data}= await queryCategoryList()
+        const {data} = await queryCategoryList()
         if (data.code !== 0) {
             throw new Error(data.message)
         }

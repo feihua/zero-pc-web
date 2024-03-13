@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import {UserLayout} from "../../layouts/userLayout";
 import {PersonalForm} from "./PersonalForm";
 import {useDispatch} from "react-redux";
 import {login} from "../../store/user/slice";

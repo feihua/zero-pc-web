@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryAddressList, queryCategoryList, queryFocusList} from "../../api";
+import {queryFocusList} from "../../api";
 
 interface FocusState {
     loading: boolean;
@@ -27,8 +27,7 @@ export const queryFocus = createAsyncThunk(
 export const focusSlice = createSlice({
     name: "focus",
     initialState,
-    reducers: {
-    },
+    reducers: {},
     extraReducers: {
         [queryFocus.pending.type]: (state) => {
             state.loading = true;

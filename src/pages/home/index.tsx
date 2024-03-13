@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import {MainLayout} from "../../layouts/mainLayout";
 import {Col, Row, Typography} from "antd";
 import {BusinessPartners, Carousel, ProductCollection, SideMenu,} from "../../components";
 import {productList1, productList2, productList3} from "../../components/productCollection/mockups";
@@ -13,7 +12,7 @@ export const HomePage = (props: Props) => {
 
 
     return (
-        <MainLayout>
+        <>
             <Row style={{marginTop: 20}}>
                 <Col span={6}>
                     <SideMenu/>
@@ -50,6 +49,6 @@ export const HomePage = (props: Props) => {
                 products={productList3}
             />
             <BusinessPartners/>
-        </MainLayout>
+        </>
     );
 };

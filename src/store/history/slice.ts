@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryAddressList, queryCategoryList, queryHistoryList} from "../../api";
+import {queryHistoryList} from "../../api";
 
 interface HistoryState {
     loading: boolean;
@@ -27,8 +27,7 @@ export const queryHistory = createAsyncThunk(
 export const historySlice = createSlice({
     name: "history",
     initialState,
-    reducers: {
-    },
+    reducers: {},
     extraReducers: {
         [queryHistory.pending.type]: (state) => {
             state.loading = true;

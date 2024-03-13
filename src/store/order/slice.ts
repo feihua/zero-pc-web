@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryAddressList, queryCategoryList, queryOrderList} from "../../api";
+import {queryOrderList} from "../../api";
 
 interface OrderState {
     loading: boolean;

@@ -1,10 +1,8 @@
 // @flow
-import {Layout, Typography } from 'antd';
+import {Layout, Typography} from 'antd';
 import * as React from 'react';
 
-type Props = {
-
-};
+type Props = {};
 export const Footer = (props: Props) => {
     return (
         <Layout.Footer>

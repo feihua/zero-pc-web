@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryAddressList, queryCollectionList} from "../../api";
+import {queryCollectionList} from "../../api";
 
 interface CollectionState {
     loading: boolean;

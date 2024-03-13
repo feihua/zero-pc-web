@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryAddressList, queryCartList} from "../../api";
+import {queryCartList} from "../../api";
 
 interface CartState {
     loading: boolean;

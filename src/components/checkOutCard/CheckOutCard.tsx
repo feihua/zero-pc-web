@@ -1,9 +1,7 @@
 // @flow
 import * as React from 'react';
 
-type Props = {
-
-};
+type Props = {};
 export const CheckOutCard = (props: Props) => {
     return (
         <div>

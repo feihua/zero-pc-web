@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {queryAddressList, queryCategoryList, queryHomeInfo} from "../../api";
+import {queryHomeInfo} from "../../api";
 
 interface HomeState {
     loading: boolean;
@@ -27,8 +27,7 @@ export const queryHome = createAsyncThunk(
 export const homeSlice = createSlice({
     name: "home",
     initialState,
-    reducers: {
-    },
+    reducers: {},
     extraReducers: {
         [queryHome.pending.type]: (state) => {
             state.loading = true;
