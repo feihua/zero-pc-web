@@ -2,27 +2,24 @@
 import * as React from 'react';
 import {MainLayout} from "../../layouts/mainLayout";
 import {Col, Row, Typography} from "antd";
-import {Carousel} from "../../components/carousel";
-import {SideMenu} from "../../components/sideMenu";
-import {ProductCollection} from "../../components/productCollection";
+import {BusinessPartners, Carousel, ProductCollection, SideMenu,} from "../../components";
 import {productList1, productList2, productList3} from "../../components/productCollection/mockups";
 import sideImage from '../../assets/images/sider_2019_12-09.png';
 import sideImage2 from '../../assets/images/sider_2019_02-04.png';
 import sideImage3 from '../../assets/images/sider_2019_02-04-2.png';
-import {BusinessPartners} from "../../components/businessPartners";
 
-type Props = {
-
-};
+type Props = {};
 export const HomePage = (props: Props) => {
+
+
     return (
         <MainLayout>
-            <Row style={{ marginTop: 20 }}>
+            <Row style={{marginTop: 20}}>
                 <Col span={6}>
-                    <SideMenu />
+                    <SideMenu/>
                 </Col>
                 <Col span={18}>
-                    <Carousel />
+                    <Carousel/>
                 </Col>
             </Row>
             <ProductCollection
@@ -52,7 +49,7 @@ export const HomePage = (props: Props) => {
                 sideImage={sideImage3}
                 products={productList3}
             />
-            <BusinessPartners />
+            <BusinessPartners/>
         </MainLayout>
     );
 };
