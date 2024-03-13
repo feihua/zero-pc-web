@@ -149,10 +149,10 @@ export const Header = (props: Props) => {
                     <Typography.Text>让购物更愉快</Typography.Text>
 
                     <Button.Group className={styles.buttonGroup}>
-                        <Button onClick={() => navigate('/register')}>
+                        <Button onClick={() => navigate('/user/register')}>
                             注册
                         </Button>
-                        <Button onClick={() => navigate('/login')}>
+                        <Button onClick={() => navigate('/user/login')}>
                             登录
                         </Button>
                         <Button onClick={() => navigate('/cart')}>

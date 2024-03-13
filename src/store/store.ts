@@ -18,7 +18,7 @@ import {productSlice} from "./product/slice";
 const persistConfig = {
     key: "root",
     storage,
-    whitelist: ["user", "category"]
+    whitelist: ["user", "category", "home"]
 }
 
 const rootReducer = combineReducers({
