@@ -19,7 +19,7 @@ export const userRegister = (params: IRegister) => {
 
 
 export interface ILogin {
-    mobile: string;
+    account: string;
     password: string;
 }
 

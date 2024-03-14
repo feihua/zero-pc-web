@@ -10,7 +10,7 @@ export const PersonalPage: React.FC = () => {
 
     useEffect(() => {
         dispatch(login({
-            mobile: "18613030352",
+            account: "18613030352",
             password: "123456"
         }));
 
