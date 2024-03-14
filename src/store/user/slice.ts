@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {userLogin} from "../../api";
+import {ILogin, IRegister, userLogin, userRegister} from "../../api";
 
 interface UserState {
     loading: boolean;
@@ -13,13 +13,23 @@ const initialState: UserState = {
     token: null,
 };
 
+//用户注册
+export const register = createAsyncThunk(
+    "user/register",
+    async (param: IRegister, thunkAPI) => {
+        const {data} = await userRegister(param)
+        if (data.code !== 0) {
+            throw new Error(data.message)
+        }
+        return data.data;
+    }
+);
+
+// 用户登录
 export const login = createAsyncThunk(
     "user/signIn",
-    async (paramaters: {
-        mobile: string,
-        password: string,
-    }, thunkAPI) => {
-        const {data} = await userLogin(paramaters)
+    async (param: ILogin, thunkAPI) => {
+        const {data} = await userLogin(param)
         if (data.code !== 0) {
             throw new Error(data.message)
         }
@@ -38,6 +48,19 @@ export const userSlice = createSlice({
         },
     },
     extraReducers: {
+        [register.pending.type]: (state) => {
+            state.loading = true;
+        },
+        [register.fulfilled.type]: (state, action) => {
+            state.token = action.payload.token;
+            state.loading = false;
+            state.error = null;
+        },
+        [register.rejected.type]: (state, action) => {
+            state.loading = false;
+            console.log('action', action)
+            state.error = action.error.message;
+        },
         [login.pending.type]: (state) => {
             state.loading = true;
         },

@@ -1,5 +1,23 @@
 import {get, post} from "../../utils/request";
 
+/**
+ * 注册参数
+ */
+export interface IRegister {
+    username: string;
+    mobile: string;
+    password: string;
+    confirmPassword: string;
+}
+
+/**
+ * 用户注册
+ */
+export const userRegister = (params: IRegister) => {
+    return post('/api/member/register', params);
+};
+
+
 export interface ILogin {
     mobile: string;
     password: string;
