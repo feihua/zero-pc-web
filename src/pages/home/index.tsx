@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {useEffect} from 'react';
 import {Col, Row, Typography} from "antd";
-import {BusinessPartners, Carousel, ProductCollection, SideMenu,} from "../../components";
+import {BrandPartners, Carousel, ProductCollection, SideMenu,} from "../../components";
 import {productList1, productList2, productList3} from "../../components/productCollection/mockups";
 import sideImage from '../../assets/images/sider_2019_12-09.png';
 import sideImage2 from '../../assets/images/sider_2019_02-04.png';
@@ -54,7 +54,7 @@ export const HomePage = () => {
                 sideImage={sideImage3}
                 products={productList3}
             />
-            <BusinessPartners/>
+            <BrandPartners/>
         </>
     );
 };
