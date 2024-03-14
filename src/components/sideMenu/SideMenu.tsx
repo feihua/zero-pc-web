@@ -3,8 +3,10 @@ import styles from "./SideMenu.module.css";
 import {sideMenuList} from "./mockup";
 import {Menu} from "antd";
 import {GifOutlined} from "@ant-design/icons";
+import {useSelector} from "../../store/hook";
 
 export const SideMenu: React.FC = () => {
+    const data = useSelector(s => s.home.data)
     return (
         <Menu mode="vertical" className={styles.sideMenu}>
             {sideMenuList.map((m, index) => (

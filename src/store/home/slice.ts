@@ -4,13 +4,30 @@ import {queryHomeInfo} from "../../api";
 interface HomeState {
     loading: boolean;
     error: string | null;
-    data: any;
+    data: HomeData;
+}
+
+interface HomeData {
+    advertiseList: any[];
+    brandList: any[];
+    homeFlashPromotion: any[];
+    hotProductList: any[];
+    newProductList: any[];
+    subjectList: any[];
 }
 
 const initialState: HomeState = {
     loading: false,
     error: null,
-    data: null,
+    data: {
+        advertiseList: [],
+        brandList: [],
+        homeFlashPromotion: [],
+        hotProductList: [],
+        newProductList: [],
+        subjectList: []
+
+    },
 };
 
 export const queryHome = createAsyncThunk(
