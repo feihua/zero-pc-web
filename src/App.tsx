@@ -14,7 +14,7 @@ import {MainLayout} from "./layouts/mainLayout";
 
 const App: React.FC = () => (
     <div className={styles.App}>
-        <BrowserRouter>
+        <BrowserRouter basename={"pc"}>
             <Routes>
                 <Route path="/" element={<MainLayout/>}>
                     <Route path="" element={<HomePage/>}/>
