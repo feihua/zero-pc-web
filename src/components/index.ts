@@ -1,6 +1,6 @@
 export * from './footer'
 export * from './header'
-export * from './carousel'
+export * from './advertise'
 export * from './sideCategory'
 export * from './productCollection'
 export * from './brandPartners'
