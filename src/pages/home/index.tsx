@@ -2,13 +2,14 @@
 import * as React from 'react';
 import {useEffect} from 'react';
 import {Col, Row, Typography} from "antd";
-import {BrandPartners, Carousel, ProductCollection, SideMenu,} from "../../components";
+import {BrandPartners, Carousel, ProductCollection, SideCategory,} from "../../components";
 import {productList1, productList2, productList3} from "../../components/productCollection/mockups";
 import sideImage from '../../assets/images/sider_2019_12-09.png';
 import sideImage2 from '../../assets/images/sider_2019_02-04.png';
 import sideImage3 from '../../assets/images/sider_2019_02-04-2.png';
 import {useDispatch} from "react-redux";
 import {queryHome} from "../../store/home/slice";
+import {queryCategories} from "../../store/categories/slice";
 
 export const HomePage = () => {
     const dispatch = useDispatch()
@@ -17,11 +18,15 @@ export const HomePage = () => {
         dispatch(queryHome())
     }, []);
 
+    useEffect(() => {
+        dispatch(queryCategories())
+    }, []);
+
     return (
         <>
             <Row style={{marginTop: 20}}>
                 <Col span={6}>
-                    <SideMenu/>
+                    <SideCategory/>
                 </Col>
                 <Col span={18}>
                     <Carousel/>
